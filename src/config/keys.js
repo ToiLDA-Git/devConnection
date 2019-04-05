@@ -1,4 +1,4 @@
 module.exports = {
-  mongoURI: 'mongodb+srv://toilda:Aa12345@devconnector-vrmsg.mongodb.net/test?retryWrites=true',
+  mongoURI: 'mongodb://127.0.0.1:27017',
   secretOrKey: 'secret'
 };
