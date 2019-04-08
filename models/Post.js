@@ -22,29 +22,28 @@ const PostSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'users'
       }
-    }, {
-      comments: [
-        {
-          user: {
-            type: Schema.Types.ObjectId,
-            ref: 'users'
-          },
-          text: {
-            type: String,
-            require: true
-          },
-          name: {
-            type: String
-          },
-          avatar: {
-            type: String
-          },
-          date: {
-            type: Date,
-            default: Date.now()
-          }
-        }
-      ]
+    }
+  ],
+  comments: [
+    {
+      user: {
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+      },
+      text: {
+        type: String,
+        require: true
+      },
+      name: {
+        type: String
+      },
+      avatar: {
+        type: String
+      },
+      date: {
+        type: Date,
+        default: Date.now()
+      }
     }
   ],
   date: {
