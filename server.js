@@ -12,7 +12,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const db = require('./src/config/keys').mongoURI;
+const db = require('./config/keys').mongoURI;
 
 mongoose
   .connect(db)
@@ -23,7 +23,7 @@ mongoose
 app.use(passport.initialize());
 
 // passport config
-require('./src/config/passport')(passport);
+require('./config/passport')(passport);
 
 
 app.use('/api/users', users);
