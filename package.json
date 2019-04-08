@@ -11,9 +11,6 @@
     "mongoose": "^5.4.21",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "2.1.8",
     "validator": "^10.11.0"
   },
   "scripts": {
@@ -22,9 +19,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": [
     ">0.2%",
