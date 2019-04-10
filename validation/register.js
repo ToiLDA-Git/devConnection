@@ -33,7 +33,7 @@ module.exports = function validateRegisterInput(data) {
   }
 
   if(!validator.equals(data.password, data.confirmPassword)) {
-    errors.password = 'Confirm password not match'
+    errors.confirmPassword = 'Confirm password not match'
   }
 
   return {
