@@ -9,6 +9,7 @@ const passport = require('passport');
 const router = express.Router();
 
 const validateRegisterInput = require('../../validation/register');
+const validateLoginInput = require('../../validation/login');
 
 router.get('/test', (req, res) => {
   res.json({ msg: 'Users are working!' });
@@ -19,7 +20,7 @@ router.post('/register', (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
 
   // check validation
-  if(!isValid) {
+  if (!isValid) {
     return res.status(400).json(errors);
   }
 
@@ -56,21 +57,24 @@ router.post('/register', (req, res) => {
 
 // login API
 router.post('/login', (req, res) => {
-  const email = req.body.email;
-  const password = req.body.password;
+  const { errors, isValid } = validateLoginInput(req.body);
 
-  User.findOne({ email })
+  // check validation
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
+  User.findOne({ email: req.body.email })
     .then(user => {
       if (!user) {
         return res.status(404).json({ email: 'User not found' });
       }
 
-      bcrypt.compare(password, user.password)
+      bcrypt.compare(req.body.password, user.password)
         .then(isMatch => {
           if (isMatch) {
             // web token
             // sign token
-
             const payload = { id: user.id, name: user.name, avatar: user.avatar }; // create JWT payload
 
             jwt.sign(
