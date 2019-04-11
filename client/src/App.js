@@ -17,6 +17,8 @@ import Login from './components/auth/Login';
 import Dashboard from './components/dashboard/dashboard';
 
 import './App.css';
+import CreateProfile from './components/create-profile/CreateProfile';
+import EditProfile from './components/edit-profile/EditProfile';
 
 // check token
 if (localStorage.jwtToken) {
@@ -36,7 +38,6 @@ if (localStorage.jwtToken) {
     window.location.href = '/login';
   }
 }
-
 class App extends Component {
   render() {
     return (
@@ -51,6 +52,12 @@ class App extends Component {
               <Route exact path="/login" component={Login}></Route>
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/create-profile" component={CreateProfile} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/edit-profile" component={EditProfile} />
               </Switch>
             </div>
             <Footer />
