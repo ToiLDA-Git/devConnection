@@ -7,6 +7,7 @@ import SelectListGroup from '../common/SelectListGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import InputGroup from '../common/InputGroup';
 import { createProfile } from '../../actions/profileActions';
+import { Link } from 'react-router-dom';
 
 class CreateProfile extends Component {
   constructor(props) {
@@ -139,9 +140,9 @@ class CreateProfile extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <a href="dashboard.html" className="btn btn-light">
+              <Link to="/dashboard" className="btn btn-light">
                 Go Back
-              </a>
+              </Link>
               <h1 className="display-4 text-center">Create Your Profile</h1>
               <p className="lead text-center">Let's get some information to make your profile stand out</p>
               <small className="d-block pb-3">* = required field</small>

@@ -8,6 +8,7 @@ import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import InputGroup from '../common/InputGroup';
 import { createProfile, getCurrentProfile } from '../../actions/profileActions';
 import isEmpty from '../../validation/isEmpty';
+import { Link } from 'react-router-dom';
 
 class EditProfile extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class EditProfile extends Component {
       website: '',
       location: '',
       status: '',
-      skills: [],
+      skills: '',
       githubusername: '',
       bio: '',
       twitter: '',
@@ -177,9 +178,9 @@ class EditProfile extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <a href="dashboard.html" className="btn btn-light">
+              <Link to="/dashboard" className="btn btn-light">
                 Go Back
-              </a>
+              </Link>
               <h1 className="display-4 text-center">Edit Your Profile</h1>
               <small className="d-block pb-3">* = required field</small>
               <form onSubmit={this.onSubmit}>
