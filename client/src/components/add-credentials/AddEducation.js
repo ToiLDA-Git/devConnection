@@ -95,7 +95,7 @@ class AddEducation extends Component {
                 <TextFieldGroup
                   type="text"
                   name="fieldofstudy"
-                  placeholder="Field Of Study"
+                  placeholder="* Field Of Study"
                   value={this.state.fieldofstudy}
                   onChange={this.onChange}
                   error={errors.fieldofstudy}
@@ -105,7 +105,7 @@ class AddEducation extends Component {
                 <TextFieldGroup
                   type="date"
                   name="from"
-                  placeholder="From"
+                  placeholder="* From"
                   value={this.state.from}
                   onChange={this.onChange}
                   error={errors.from}
@@ -133,17 +133,16 @@ class AddEducation extends Component {
                     id="current"
                   />
                   <label className="form-check-label" htmlFor="current">
-                    Current Job
+                    Current Education
                 </label>
                 </div>
 
                 <TextAreaFieldGroup
                   name="description"
-                  placeholder="Job Description"
+                  placeholder="Education Description"
                   value={this.state.description}
                   onChange={this.onChange}
                   error={errors.description}
-                  info="Some of your responsibilities, etc"
                 />
                 <input type="submit" className="btn btn-info btn-block mt-4" />
               </form>

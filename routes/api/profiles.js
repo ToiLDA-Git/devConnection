@@ -64,7 +64,6 @@ router.get('/handle/:handle', (req, res) => {
     .catch(err => res.status(404).json(err))
 });
 
-
 // @method: GET api/profile/user/:user_id
 // @desc get profile by user_id
 // @access: public
@@ -134,7 +133,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
     })
 })
 
-// @method: POST api/profile/experience
+// @method: POST api/profiles/experience
 // @desc: Create or edit user profile
 // @access: private
 router.post('/experience', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -162,7 +161,7 @@ router.post('/experience', passport.authenticate('jwt', { session: false }), (re
     })
 })
 
-// @method: POST api/profile/education
+// @method: POST api/profiles/education
 // @desc: Create or edit user profile
 // @access: private
 router.post('/education', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -175,8 +174,8 @@ router.post('/education', passport.authenticate('jwt', { session: false }), (req
   Profile.findOne({ user: req.user.id })
     .then(profile => {
       const newEdu = {
-        school: req.body.title,
-        degree: req.body.company,
+        school: req.body.school,
+        degree: req.body.degree,
         fieldofstudy: req.body.fieldofstudy,
         from: req.body.from,
         to: req.body.to,

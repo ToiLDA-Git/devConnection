@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {
   GET_PROFILE,
+  GET_PROFILES,
   PROFILE_LOADING,
   CLEAR_CURRENT_PROFILE,
   GET_ERRORS,
@@ -21,7 +22,7 @@ export const getCurrentProfile = () => dispatch => {
       dispatch({
         type: GET_PROFILE,
         payload: {}
-    }))
+      }))
 }
 
 // Create profile
@@ -59,11 +60,11 @@ export const deleteAccount = () => dispatch => {
   if (window.confirm('Are you sure? This can NOT be undone!')) {
     axios.delete('/api/profiles')
       .then(res =>
-          dispatch({
-            type: SET_CURRENT_USER,
-            payload: {}
-          })
-        )
+        dispatch({
+          type: SET_CURRENT_USER,
+          payload: {}
+        })
+      )
       .catch(err =>
         dispatch({
           type: GET_ERRORS,
@@ -83,6 +84,48 @@ export const deleteExperience = (id) => dispatch => {
     .catch(err => dispatch({
       type: GET_ERRORS,
       payload: err.response.data
+    }))
+}
+
+// delete education
+export const deleteEducation = (id) => dispatch => {
+  axios.delete(`/api/profiles/education/${id}`, id)
+    .then(res => dispatch({
+      type: GET_PROFILE,
+      payload: res.data
+    }))
+    .catch(err => dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data
+    }))
+}
+
+// get all profiles
+export const getProfiles = () => dispatch => {
+  dispatch(setProfileLoading());
+
+  axios.get('/api/profiles/all')
+    .then(res => dispatch({
+      type: GET_PROFILES,
+      payload: res.data
+    }))
+    .catch(err => dispatch({
+      type: GET_PROFILES,
+      payload: null
+    }))
+}
+
+export const getProfileByHandle = (handle) => dispatch => {
+  dispatch(setProfileLoading());
+
+  axios.get(`/api/profiles/handle/${handle}`)
+    .then(res => dispatch({
+      type: GET_PROFILE,
+      payload: res.data
+    }))
+    .catch(err => dispatch({
+      type: GET_PROFILE,
+      payload: null
     }))
 }
 

@@ -7,7 +7,7 @@ class Spinner extends Component {
       <div>
         <img
           src={spinner}
-          style={{ width: '200px', margin: 'auto', display: 'block'}}
+          style={{ width: '45px', margin: 'auto', display: 'block'}}
           alt="Loading..."
         />
       </div>
