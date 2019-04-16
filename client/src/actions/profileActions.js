@@ -73,6 +73,19 @@ export const deleteAccount = () => dispatch => {
   }
 }
 
+// delete experience
+export const deleteExperience = (id) => dispatch => {
+  axios.delete(`/api/profiles/experience/${id}`, id)
+    .then(res => dispatch({
+      type: GET_PROFILE,
+      payload: res.data
+    }))
+    .catch(err => dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data
+    }))
+}
+
 export const setProfileLoading = () => {
   return {
     type: PROFILE_LOADING
