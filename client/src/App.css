@@ -37,3 +37,25 @@ img {
 .form-control::placeholder {
   color: #bbb !important;
 }
+
+.no-result {
+  position: relative;
+  background: url('./img/404-error-page-templates.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  margin-top: -24px;
+  margin-bottom: -50px;
+}
+
+.btn-homepage {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 100px;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 25px;
+}

@@ -1,14 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Notfound() {
   return (
-    <div class="container">
-      <div class="copy-container center-xy">
-        <p>
-          404, page not found.
-        </p>
-        <span class="handle"></span>
-      </div>
+    <div className="container no-result">
+      <Link to="/dashboard" className="btn btn-primary btn-lg text-uppercase btn-homepage">go to homepage</Link>
     </div>
   )
 }
