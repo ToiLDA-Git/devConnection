@@ -11,10 +11,6 @@ const router = express.Router();
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
-router.get('/test', (req, res) => {
-  res.json({ msg: 'Users are working!' });
-})
-
 // user register API
 router.post('/register', (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);

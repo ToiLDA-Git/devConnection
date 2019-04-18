@@ -10,7 +10,7 @@ const Profile = require('../../models/Profile');
 const validatePostInput = require('../../validation/post');
 
 // @method: POST api/posts
-// @desc: get current posts
+// @desc: create a single post
 // @access: private
 router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
   const { errors, isValid } = validatePostInput(req.body);
@@ -110,7 +110,6 @@ router.post('/unlike/:id', passport.authenticate('jwt', { session: false }), (re
         .catch(err => res.status(404).json({ postNoFound: 'Post not found' }))
     })
 })
-
 
 // @method: POST api/posts/comment/:id
 // @desc: Add comment to post
