@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import TextAreaFieldGroup from '../common/TextAreaFieldGroup'
 import { addPost } from '../../actions/postActions'
+import TextAreaFieldGroup from '../common/TextAreaFieldGroup'
 
 class PostForm extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       text: '',
       errors: {}
@@ -24,7 +23,7 @@ class PostForm extends Component {
   }
 
   onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   onSubmit(e) {
@@ -39,7 +38,10 @@ class PostForm extends Component {
     }
 
     this.props.addPost(newPost);
-    this.setState = ({ text: '' });
+    this.setState({
+      text: '',
+      errors: {}
+    });
   }
 
   render() {
@@ -74,7 +76,7 @@ PostForm.propTypes = {
   errors: PropTypes.object.isRequired
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth,
   errors: state.errors
 })
