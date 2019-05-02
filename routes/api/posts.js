@@ -59,9 +59,9 @@ router.delete('/:id', passport.authenticate('jwt', { session: false }), (req, re
           if (post.user.toString() !== req.user.id) {
             return res.status(401).json({ notAuthorized: 'User not authorized' })
           }
-          Post.deleteOne()
-            .then(() => res.json({ success: true }))
-            .catch(err => res.status(404).json({ postNoFound: 'Post not found' }))
+
+          post.remove().then(() => res.json({ success: true }))
+            .catch(err => err.status(400).json({ postNoFound: 'Post not found'}))
         })
     })
 })
